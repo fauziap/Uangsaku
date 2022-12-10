@@ -41,7 +41,7 @@ class GoogleController extends Controller
 
                 Auth::login(($newUser));
 
-                return redirect('siswa');
+                return redirect()->intended('siswa');
             }
         } catch (\Throwable $th) {
             //
