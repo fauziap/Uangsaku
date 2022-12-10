@@ -18,31 +18,27 @@ class UserDefault extends Seeder
         $user = [
             [
                 'name' => 'administrator',
-                'username' => 'admin',
+                'email' => 'admin@admin.com',
                 'password' => bcrypt('admin'),
                 'level' => 1,
-                'email' => 'admin@admin.com'
             ],
             [
                 'name' => 'kasir',
-                'username' => 'kasir',
+                'email' => 'kasir@kasir.com',
                 'password' => bcrypt('kasir'),
                 'level' => 2,
-                'email' => 'kasir@kasir.com'
             ],
             [
                 'name' => 'guru',
-                'username' => 'guru',
+                'email' => 'guru@guru.com',
                 'password' => bcrypt('guru'),
                 'level' => 3,
-                'email' => 'guru@guru.com'
             ],
             [
                 'name' => 'siswa',
-                'username' => 'siswa',
+                'email' => 'siswa@siswa.com',
                 'password' => bcrypt('siswa'),
                 'level' => 4,
-                'email' => 'siswa@siswa.com'
             ],
         ];
         foreach($user as $key => $value)[

@@ -45,7 +45,7 @@
                     <div class="">
                         <input
                             class=" w-full text-sm px-4 py-3 bg-gray-200 focus:bg-gray-100 border  border-gray-200 rounded-lg focus:outline-none focus:border-blue-400"
-                            type="" placeholder="Username" name="username" value="{{Session::get('username')}}">
+                            type="" placeholder="Email" name="email" value="{{Session::get('email')}}">
                     </div>
 
                     <div class="relative" x-data="{ show: true }">

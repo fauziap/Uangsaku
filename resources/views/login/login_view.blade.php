@@ -45,7 +45,7 @@
                     <div class="">
                         <input
                             class=" w-full text-sm px-4 py-3 bg-gray-200 focus:bg-gray-100 border  border-gray-200 rounded-lg focus:outline-none focus:border-blue-400"
-                            type="" placeholder="Username" name="username" value="{{Session::get('username')}}">
+                            type="" placeholder="Email" name="email" value="{{Session::get('email')}}">
                     </div>
 
 
@@ -107,24 +107,6 @@
                             <!-- <svg class="w-4" fill="#fff" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M11.99 13.9v-3.72h9.36c.14.63.25 1.22.25 2.05 0 5.71-3.83 9.77-9.6 9.77-5.52 0-10-4.48-10-10S6.48 2 12 2c2.7 0 4.96.99 6.69 2.61l-2.84 2.76c-.72-.68-1.98-1.48-3.85-1.48-3.31 0-6.01 2.75-6.01 6.12s2.7 6.12 6.01 6.12c3.83 0 5.24-2.65 5.5-4.22h-5.51v-.01Z"></path></svg> -->
                             <span>Google</span>
                         </a>
-                        <button type="submit"
-                            class="w-full flex items-center justify-center mb-6 md:mb-0 border border-gray-300 hover:border-gray-900 hover:bg-gray-900 text-sm text-gray-500 p-3  rounded-lg tracking-wide font-medium  cursor-pointer transition ease-in duration-500 px-">
-                            <svg class="w-4 mr-2" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100"
-                                xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
-
-                                <g id="Layer_1" />
-                                <g id="Layer_2">
-                                    <path
-                                        d="M50 2.5c-58.892 1.725-64.898 84.363-7.46 95h14.92c57.451-10.647 51.419-93.281-7.46-95z"
-                                        style="fill:#1877f2" />
-                                    <path
-                                        d="M57.46 64.104h11.125l2.117-13.814H57.46v-8.965c0-3.779 1.85-7.463 7.781-7.463h6.021V22.101c-12.894-2.323-28.385-1.616-28.722 17.66V50.29H30.417v13.814H42.54V97.5h14.92V64.104z"
-                                        style="fill:#f1f1f1" />
-                                </g>
-                            </svg>
-                            <!-- <svg class="w-4" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="#fff" fill-rule="evenodd" d="M9.945 22v-8.834H7V9.485h2.945V6.54c0-3.043 1.926-4.54 4.64-4.54 1.3 0 2.418.097 2.744.14v3.18h-1.883c-1.476 0-1.82.703-1.82 1.732v2.433h3.68l-.736 3.68h-2.944L13.685 22"></path></svg> -->
-                            <span>Facebook</span>
-                        </button>
 
                     </div>
                 </div>

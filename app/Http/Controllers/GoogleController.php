@@ -6,7 +6,7 @@ use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Exception;
+
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Laravel\Socialite\Facades\Socialite;
@@ -23,26 +23,28 @@ class GoogleController extends Controller
     {
         try {
             $user = Socialite::driver('google')->user();
-            dd($user);
+            // dd($user); //ini tadi buat ngecek 
             $finduser = User::where('google_id', $user->id)->first();
 
             if ($finduser) {
                 Auth::login($finduser);
+                return redirect()->intended('siswa');
 
-                return redirect('siswa');
             } else {
-                $newUser = User::updateOrCreate(['email' => $user->email], [
+                $newUser = User::create([
                     'name' => $user->name,
+                    'email' => $user->email,
+                    'password' => Hash::make('password'),
                     'google_id' => $user->id,
-                    'password' => Hash::make('password')
+                    'level' => ('4')
                 ]);
 
                 Auth::login(($newUser));
 
                 return redirect('siswa');
             }
-        } catch (Exception $e) {
-            dd($e->getMessage());
+        } catch (\Throwable $th) {
+            //
         }
     }
 }

@@ -31,17 +31,17 @@ class LoginController extends Controller
     public function proses(Request $request)
     {
 
-        Session::flash('username', $request->username);
+        Session::flash('email', $request->email);
         $request->validate([
-            'username' => 'required',
+            'email' => 'required',
             'password' => 'required'
         ], [
-            'username.required' => 'Tolong masukkan username',
+            'email.required' => 'Tolong masukkan email',
             'password.required' => 'Tolong masukkan password'
         ]);
 
         // cara yang berbeda
-        $infologin = $request->only('username', 'password');
+        $infologin = $request->only('email', 'password');
 
         if (Auth::attempt($infologin)) {
             $user = Auth::user();
@@ -59,17 +59,6 @@ class LoginController extends Controller
         }
     }
 
-    public function logout(Request $request)
-    {
-        Auth::logout();
-
-        $request->session()->invalidate();
-
-        $request->session()->regenerateToken();
-
-        return redirect()->intended('login');
-    }
-
     public function create()
     {
         return view('login/register');
@@ -79,16 +68,16 @@ class LoginController extends Controller
     {
 
         Session::flash('name', $request->name);
-        Session::flash('username', $request->username);
+        Session::flash('email', $request->email);
 
         $request->validate([
             'name' => 'required',
-            'username' => 'required|unique:users',
+            'email' => 'required|unique:users',
             'password' => 'required|min:6'
         ], [
             'name.required' => 'Nama tolong di isi',
-            'username.required' => 'username tolong di isi',
-            'username.unique' => 'username sudah digunakan',
+            'email.required' => 'email tolong di isi',
+            'email.unique' => 'email sudah digunakan',
             'password.required' => 'password wajib di isi',
             'password.min' => 'password minimal 6 karakter',
         ]);
@@ -96,14 +85,14 @@ class LoginController extends Controller
         $inforegister = [
 
             'name' => $request->input('name'),
-            'username' => $request->input('username'),
+            'email' => $request->input('email'),
             'password' => Hash::make($request->input('password')),
             'level' => ('4')
         ];
 
         User::create($inforegister);
 
-        $infologin = $request->only('username', 'password');
+        $infologin = $request->only('email', 'password');
 
         if (Auth::attempt($infologin)) {
             $user = Auth::user();
@@ -121,5 +110,16 @@ class LoginController extends Controller
         }
         // return redirect('login')->with('success', 'Berhasil membuat akun baru');
 
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect()->intended('login');
     }
 }
